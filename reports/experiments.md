@@ -26,3 +26,11 @@
 ## 正式比赛记录
 
 正式实验运行后记录候选名称、数据和运行 SHA-256、OOF、复核 ΔAUC、采用理由、Git 提交和 Kaggle 提交 ID。逐折和合并 ROC AUC、预测文件哈希与耗时由各运行的 `run.json` 生成。
+
+## 2026-11-25 · Kaggle 公开方案参考
+
+通过 Kaggle Notebook 下载接口取得 [evgendvorkin 的 Deep EDA / 9-Model Blend](https://www.kaggle.com/code/evgendvorkin/s6e11-deep-eda-9-model-blend-oof-0-951881) 第 53 版。原始 Notebook 存在本地 `artifacts/reference/s6e11-deep-eda-9-model-blend-oof-0-951881.ipynb`，沿用仓库对 `artifacts/` 的忽略规则。
+
+第 62 节记录 9 个组件及其权重。外部 OOF Bank 的 `gb_bag5` 占 45.00%，其余为 GPT-2 19.59%、RealMLP PyTabKit 8.34%、LightGBM 6.95%、GLM 6.95%、XGBoost 6.25%、RealMLP PyTorch 2.78%、TabM 2.75%、CatBoost 1.39%。
+
+作者报告八模型 Logit-Rank 的五折 OOF ROC AUC 为 0.95161228，九模型为 0.95188091（提升 0.00026863）。用四折选融合权重并在剩余一折上评估的检查结果为 0.95185586，作者报告的公开榜最佳为 0.95204。以上数值来自 Notebook，项目本地未复跑。
