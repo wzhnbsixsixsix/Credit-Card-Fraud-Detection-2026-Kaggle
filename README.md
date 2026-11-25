@@ -25,6 +25,10 @@ python -m src.validate_submission artifacts/baseline/e01-lgb2/submission.csv
 
 本地已生成首版正式参赛文件 `artifacts/baseline/e01-lgb2/submission.csv`，五折 OOF ROC AUC 为 **0.947874**。
 
+## 在 Jupyter 中运行基线
+
+在项目根目录激活上述环境，执行 `python -m pip install jupyterlab matplotlib`，再运行 `python -m jupyterlab`。打开 [01_baseline.ipynb](01_baseline.ipynb)，选择 Python 3 内核并依次运行。Notebook 包含 EDA、LightGBM 五折、OOF AUC 和 ROC 曲线，以及提交文件检查。已有基线时会核对数据哈希并读取产物。改用新运行目录即可重新训练。
+
 ## 比较模型与融合
 
 ```bash
@@ -66,3 +70,5 @@ python -m src.validate_submission artifacts/final/sprint/submission.csv
 - 2026-11-25 · 补充比赛说明和计划入口，便于从仓库首页找到每日任务与实验记录要求。
 - 2026-11-25 · 加入数据审计、五折训练、锁定集复核及最终融合的运行说明，链接实测记录。
 - 2026-11-25 · 增加正式数据基线的本地文件位置和验证成绩。
+
+- 2026-11-25 · 加入基线 Notebook 及打开方式，复用现有训练和提交检查代码。
