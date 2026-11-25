@@ -1,12 +1,12 @@
 # Kaggle 信用卡欺诈预测高分冲刺计划
 
-计划日期为 **2026 年 11 月 25 日**，下文日程均为北京时间。按单人参赛、每天约 2–4 小时主动操作制定，后台训练时间另计。仓库目前只有项目说明，从第一份有效提交开始。
+计划日期为 **2026 年 11 月 25 日**，下文日程均为北京时间。按单人参赛、每天约 2–4 小时主动操作制定，后台训练时间另计。[README](README.md) 给出已实现的训练、复核和生成提交文件的命令。
 
 ## 今天先做什么
 
 1. **前 20 分钟** · 登录 Kaggle，加入 `playground-series-s6e11`，接受规则。下载三份比赛 CSV，登记文件哈希，查看规则页上的外部数据条件、每日提交额度及最终可选择的提交数。
 2. **接下来 30 分钟** · 核对列名、欺诈比例、`id` 和样例提交，生成并保存固定五折分配；先用一折走通训练、预测、按 `id` 对齐和 CSV 检查。
-3. **今晚** · 用原始特征跑浅层 LightGBM 五折，保存 OOF 和测试集预测，上传 `sub-e01-lgb.csv`，在 Kaggle 确认显示分数。若本机安装耗时超过 20 分钟，切到 Kaggle Notebook 跑同一方案。
+3. **今晚** · 用原始特征跑浅层 LightGBM 五折，保存 OOF 和测试集预测，上传 `artifacts/baseline/e01-lgb2/submission.csv`，在 Kaggle 确认显示分数。若本机安装耗时超过 20 分钟，切到 Kaggle Notebook 跑同一方案。
 4. **模型运行期间** · 打开下面的数字位 GLM 和 RealMLP Notebook，固定公开版本，记录输入、许可、依赖、计算时间。用原始训练数据并行复现其中一条，明天接入自己的验证。
 
 ## 比赛、分数和目标
@@ -35,7 +35,7 @@ ROC AUC 衡量欺诈样本排在正常样本前面的能力。训练记录用 RO
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install kaggle pandas scikit-learn lightgbm
+python -m pip install -r requirements.txt kaggle
 kaggle auth login
 mkdir -p data/raw
 kaggle competitions download -c playground-series-s6e11 -p data/raw
@@ -98,12 +98,12 @@ shasum -a 256 data/raw/{train,test,sample_submission}.csv
 ```bash
 # 在候选文件通过检查、确认当前额度后提交；名称随实际实验编号调整。
 kaggle competitions submit -c playground-series-s6e11 \
-  -f submissions/sub-e01-lgb.csv -m "e01-lgb seed42"
+  -f artifacts/baseline/e01-lgb2/submission.csv -m "e01-lgb2 seed42"
 ```
 
 ## 仓库与实验追溯
 
-按下表随着实现建立文件。优先写能读数据、跑模型和出提交的最短路径。
+按下表维护代码和运行记录。
 
 | 文件或目录 | 实施内容与保留的记录 |
 | --- | --- |
@@ -111,7 +111,7 @@ kaggle competitions submit -c playground-series-s6e11 \
 | `configs/`、`requirements.txt` | 提交被用于比较的参数、选定的特征组、种子和实测依赖版本。 |
 | `reports/data_audit.md` | 数据版本、哈希、列字典、漂移与外部数据的来源和使用依据。 |
 | `reports/experiments.md` | 一项实验一条记录，包含失败尝试、决定和原因。最终记录中链接对应的 Git 提交及 Kaggle 提交 ID。 |
-| `data/raw/`、`artifacts/`、`submissions/` | 本地存比赛 CSV、折分配、模型和预测，使用 `.gitignore`。保存在 GitHub 的是代码、配置、汇总结果和校验哈希。凭据留在运行环境。 |
+| `data/raw/`、`artifacts/` | 本地存比赛 CSV、折分配、预测与提交，使用 `.gitignore`。模型由运行参数复现。保存在 GitHub 的是代码、配置、汇总结果和校验哈希。凭据留在运行环境。 |
 
 完成一次实验就按这个模板填写一条记录。
 
@@ -128,3 +128,4 @@ kaggle competitions submit -c playground-series-s6e11 \
 ## 修改记录
 
 - 2026-11-25 · 新增首版冲刺计划。记录比赛依据、首次提交步骤、验证口径、提分顺序、每日验收和实验追溯方式。
+- 2026-11-25 · 对齐已实现的命令、提交文件路径和运行记录位置，补充 README 入口。

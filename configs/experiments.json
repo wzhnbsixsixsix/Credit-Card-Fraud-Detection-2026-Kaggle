@@ -1,0 +1,26 @@
+{
+  "lightgbm": {"learning_rate": 0.05, "min_child_samples": 100, "n_estimators": 3000, "reg_lambda": 1.0, "patience": 150},
+  "catboost": {"learning_rate": 0.05, "l2_leaf_reg": 5, "iterations": 3000, "patience": 150},
+  "logistic": {"C": 1.0, "n_bins": 32, "max_iter": 500},
+  "realmlp": {"epochs": 24},
+  "experiments": {
+    "e01-lgb1": {"model": "lightgbm", "params": {"max_depth": 1, "num_leaves": 2}},
+    "e01-lgb2": {"model": "lightgbm", "params": {"max_depth": 2, "num_leaves": 4}},
+    "e01-lgb4": {"model": "lightgbm", "params": {"max_depth": 4, "num_leaves": 16}},
+    "e02-glm": {"model": "logistic"},
+    "e03-cat4": {"model": "catboost", "params": {"depth": 4}},
+    "e03-cat6": {"model": "catboost", "params": {"depth": 6}},
+    "e04-digits": {"model": "logistic", "digits": "add"},
+    "e04-digits-only": {"model": "logistic", "digits": "only"},
+    "e04-digit-control": {"model": "logistic", "digits": "shuffle"},
+    "e04-lgb-digits": {"model": "lightgbm", "digits": "add", "params": {"max_depth": 2, "num_leaves": 4}},
+    "e05-interactions": {"model": "logistic", "interactions": true},
+    "e06-freq": {"model": "lightgbm", "encoding": "frequency", "params": {"max_depth": 2, "num_leaves": 4}},
+    "e06-target": {"model": "lightgbm", "encoding": "target", "params": {"max_depth": 2, "num_leaves": 4}},
+    "e06-external-count": {"model": "lightgbm", "external": "count", "params": {"max_depth": 2, "num_leaves": 4}},
+    "e06-external-risk": {"model": "lightgbm", "external": "risk", "params": {"max_depth": 2, "num_leaves": 4}},
+    "e06-external-rows": {"model": "lightgbm", "external": "rows", "params": {"max_depth": 2, "num_leaves": 4}},
+    "e07-realmlp": {"model": "realmlp"},
+    "e07-realmlp-digits": {"model": "realmlp", "digits": "add"}
+  }
+}
