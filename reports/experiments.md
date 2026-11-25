@@ -29,7 +29,7 @@
 
 ## 2026-11-25 · Kaggle 公开方案参考
 
-通过 Kaggle Notebook 下载接口取得 [evgendvorkin 的 Deep EDA / 9-Model Blend](https://www.kaggle.com/code/evgendvorkin/s6e11-deep-eda-9-model-blend-oof-0-951881) 第 53 版。原始 Notebook 存在本地 `artifacts/reference/s6e11-deep-eda-9-model-blend-oof-0-951881.ipynb`，沿用仓库对 `artifacts/` 的忽略规则。
+通过 Kaggle Notebook 下载接口取得 [evgendvorkin 的 Deep EDA / 9-Model Blend](https://www.kaggle.com/code/evgendvorkin/s6e11-deep-eda-9-model-blend-oof-0-951881) 第 53 版。原始 Notebook 保存在 `Kaggle_Credict_Card2026_/` 根目录，位于 `Code/` 仓库之外，文件名为 `s6e11-deep-eda-9-model-blend-oof-0-951881.ipynb`。
 
 第 62 节记录 9 个组件及其权重。外部 OOF Bank 的 `gb_bag5` 占 45.00%，其余为 GPT-2 19.59%、RealMLP PyTabKit 8.34%、LightGBM 6.95%、GLM 6.95%、XGBoost 6.25%、RealMLP PyTorch 2.78%、TabM 2.75%、CatBoost 1.39%。
 
