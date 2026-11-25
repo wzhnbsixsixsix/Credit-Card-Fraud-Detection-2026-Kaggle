@@ -12,7 +12,7 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
-加入比赛并接受规则后，从 [Kaggle Data](https://www.kaggle.com/competitions/playground-series-s6e11/data) 下载并解压 `train.csv`、`test.csv` 和 `sample_submission.csv` 到 `data/raw/`。在 Kaggle Notebook 上运行时，把命令中的 `--data-dir` 指向已挂载的比赛数据目录。`credit_card_fraud_2026.csv` 是原始参考数据，正式基线使用比赛包里的三份文件。核对过程见[数据审计记录](reports/data_audit.md)。
+加入比赛并接受规则后，从 [Kaggle Data](https://www.kaggle.com/competitions/playground-series-s6e11/data) 下载并解压 `train.csv`、`test.csv` 和 `sample_submission.csv` 到 `data/raw/`。在 Kaggle Notebook 上运行时，把命令中的 `--data-dir` 指向已挂载的比赛数据目录。正式基线使用比赛包里的三份文件。核对过程见[数据审计记录](reports/data_audit.md)。
 
 ```bash
 python -m src.train audit
@@ -72,3 +72,4 @@ python -m src.validate_submission artifacts/final/sprint/submission.csv
 - 2026-11-25 · 增加正式数据基线的本地文件位置和验证成绩。
 
 - 2026-11-25 · 加入基线 Notebook 及打开方式，复用现有训练和提交检查代码。
+- 2026-11-25 · 清理早期参考数据、派生验证目录和产物，统一使用正式比赛数据。
