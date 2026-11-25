@@ -12,7 +12,7 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
-加入比赛并接受规则后，从 [Kaggle Data](https://www.kaggle.com/competitions/playground-series-s6e11/data) 下载并解压 `train.csv`、`test.csv` 和 `sample_submission.csv` 到 `data/raw/`。在 Kaggle Notebook 上运行时，把命令中的 `--data-dir` 指向已挂载的比赛数据目录。仓库根目录的 `credit_card_fraud_2026.csv` 是原始参考数据，官方训练和测试文件必须单独下载。核对过程见[数据审计记录](reports/data_audit.md)。
+加入比赛并接受规则后，从 [Kaggle Data](https://www.kaggle.com/competitions/playground-series-s6e11/data) 下载并解压 `train.csv`、`test.csv` 和 `sample_submission.csv` 到 `data/raw/`。在 Kaggle Notebook 上运行时，把命令中的 `--data-dir` 指向已挂载的比赛数据目录。`credit_card_fraud_2026.csv` 是原始参考数据，正式基线使用比赛包里的三份文件。核对过程见[数据审计记录](reports/data_audit.md)。
 
 ```bash
 python -m src.train audit
@@ -22,6 +22,8 @@ python -m src.validate_submission artifacts/baseline/e01-lgb2/submission.csv
 ```
 
 一折检查只生成该折的预测和指标。完整训练生成 `oof.csv`、`test.csv`、`run.json` 和 `submission.csv`。打开 [Kaggle 提交页](https://www.kaggle.com/competitions/playground-series-s6e11/submissions) 上传完整版本，通过平台评分后把提交 ID、Public AUC 和对应的文件哈希记到[实验记录](reports/experiments.md)。
+
+本地已生成首版正式参赛文件 `artifacts/baseline/e01-lgb2/submission.csv`，五折 OOF ROC AUC 为 **0.947874**。
 
 ## 比较模型与融合
 
@@ -63,3 +65,4 @@ python -m src.validate_submission artifacts/final/sprint/submission.csv
 
 - 2026-11-25 · 补充比赛说明和计划入口，便于从仓库首页找到每日任务与实验记录要求。
 - 2026-11-25 · 加入数据审计、五折训练、锁定集复核及最终融合的运行说明，链接实测记录。
+- 2026-11-25 · 增加正式数据基线的本地文件位置和验证成绩。
