@@ -42,3 +42,7 @@
 合并 **OOF ROC AUC 为 0.947874**，折均 0.947907，折间标准差 0.001929。
 
 五折平均预测写入本地 `artifacts/baseline/e01-lgb2/submission.csv`。299,984 行通过列名、样例 ID 顺序及预测值校验。提交文件 SHA-256 为 `14d577f8ef0b9151a4bf0d7dd7bc5142e8a18e37386f1124ae0a75d156b78130`，完整记录见同目录的 `run.json`。Kaggle 状态为待上传。
+
+## 2026-11-27 · Beginner to SOTA Guide
+
+从 Kaggle 的 Notebook 下载接口取得 rishabhbafnaiiitd 的第 18 版，供后续复现实验参考。文件保存在项目根目录（`Code/` 外）的 `s6e11-beginner-to-sota-guide-lb-0-9574.ipynb`。Jupyter 文件结构校验通过，含 17 个单元，SHA-256 为 `c3dee3db40a21fd4bb8adfe2a8a74c3632d152fb833617f0912ceca46323490c`。 [Kaggle 原始 Notebook](https://www.kaggle.com/code/rishabhbafnaiiitd/s6e11-beginner-to-sota-guide-lb-0-9574)
