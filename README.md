@@ -29,6 +29,22 @@ python -m src.validate_submission artifacts/baseline/e01-lgb2/submission.csv
 
 在项目根目录激活上述环境，执行 `python -m pip install jupyterlab matplotlib`，再运行 `python -m jupyterlab`。打开 [01_baseline.ipynb](01_baseline.ipynb)，选择 Python 3 内核并依次运行。Notebook 包含 EDA、LightGBM 五折、OOF AUC 和 ROC 曲线，以及提交文件检查。已有基线时会核对数据哈希并读取产物。改用新运行目录即可重新训练。
 
+## 本地运行 Notebook
+
+在项目根目录或 `Code/` 打开 Notebook，选择 **Python (s6e11-notebooks)** 内核。四份 Notebook 共用 `Code/data/raw/` 中的 `train.csv`、`test.csv` 和 `sample_submission.csv`。
+
+需要在另一台机器安装时，在仓库目录运行：
+
+```bash
+conda env create -f environment-notebooks.yml
+conda run -n s6e11-notebooks python -m ipykernel install --user \
+  --name s6e11-notebooks --display-name "Python (s6e11-notebooks)"
+```
+
+- `01_baseline.ipynb` 会核对并复用已完成的 LightGBM 基线。首次运行时会训练并生成提交文件。
+- `Deep EDA / 9-Model Blend` 使用 `data/reference/credit_card_fraud_2026.csv` 做原始数据对照，最后两节绘制作者记录的模型成绩。 [Kaggle 原始参考数据](https://www.kaggle.com/datasets/uditjain13/credit-card-fraud-detection-2026)
+- 中英文 `Beginner to SOTA Guide` 在现有比赛 CSV 上运行分析。复现最终延拓时，将作者提交文件或 Step AG 与 Step AC 的预测 CSV 放入 `data/reference/sota-v18/`。两份 Notebook 在该目录内按原文 SHA-256 查找。没有对应文件时，最后一张图可预览本地 LightGBM 基线，并显示预测来源。 [作者 Notebook](https://www.kaggle.com/code/rishabhbafnaiiitd/s6e11-beginner-to-sota-guide-lb-0-9574)
+
 ## 比较模型与融合
 
 ```bash
@@ -73,3 +89,4 @@ python -m src.validate_submission artifacts/final/sprint/submission.csv
 
 - 2026-11-25 · 加入基线 Notebook 及打开方式，复用现有训练和提交检查代码。
 - 2026-11-25 · 清理早期参考数据、派生验证目录和产物，统一使用正式比赛数据。
+- 2026-11-27 · 记录四份 Notebook 的本地数据目录、独立 Conda 内核和参考预测文件位置。

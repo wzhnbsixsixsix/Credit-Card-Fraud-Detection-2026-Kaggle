@@ -48,3 +48,16 @@
 从 Kaggle 的 Notebook 下载接口取得 rishabhbafnaiiitd 的第 18 版，供后续复现实验参考。文件保存在项目根目录（`Code/` 外）的 `s6e11-beginner-to-sota-guide-lb-0-9574.ipynb`。Jupyter 文件结构校验通过，含 17 个单元，SHA-256 为 `c3dee3db40a21fd4bb8adfe2a8a74c3632d152fb833617f0912ceca46323490c`。 [Kaggle 原始 Notebook](https://www.kaggle.com/code/rishabhbafnaiiitd/s6e11-beginner-to-sota-guide-lb-0-9574)
 
 中文版与原始文件保存在同一目录，文件名为 `s6e11-beginner-to-sota-guide-lb-0-9574-zh.ipynb`。翻译了 7 个说明单元并将成绩演进表改为适合中文阅读的 Markdown 表格，另翻译了 20 条 Python 注释。保留独立公式和可执行代码，为 17 个单元补齐 Jupyter ID。格式和代码等价性校验通过，SHA-256 为 `90d8066edd067257dd01d2150636968f540371d2460069ac51169101e422cade`。
+
+## 2026-11-27 · 四份 Notebook 适配本地数据
+
+- 四份 Notebook 使用 `Code/data/raw/` 与已注册的 **Python (s6e11-notebooks)** 内核。`environment-notebooks.yml` 记录环境，`README.md` 记录运行方法。
+- `01_baseline.ipynb` 可从项目根目录或 `Code/` 打开，已在新内核中核对 299,984 行提交和 OOF ROC AUC 0.947874。LightGBM 首折训练入口在 12,000 行正式训练数据样本上单独通过检查。
+- `src/notebook_support.py` 提供共享数据定位、测试 ID 对齐和 SOTA 参考预测校验。两份指南均完整运行，零风险规则命中 16,730 条正式测试记录。末图使用已标注来源的本地 LightGBM 基线预览，精确复现延拓所需的作者预测文件应放入 `data/reference/sota-v18/` 目录。缺失、哈希匹配提交与 AG/AC 延拓分支用临时样本检查通过。
+- Deep EDA 的 62 个代码单元全部执行成功，读入比赛数据和 20,000 行公开参考 CSV。第 61–62 节绘制原作者记录的成绩。参考 CSV 保存在 `data/reference/credit_card_fraud_2026.csv`，SHA-256 为 `4e32b1ad4880cae452d1f2e5aa53224d38eb913c185455c00a3759df5eb3da61`。 [参考数据来源](https://www.kaggle.com/datasets/uditjain13/credit-card-fraud-detection-2026)
+
+| 项目根目录中的本地 Notebook | SHA-256 |
+| --- | --- |
+| `s6e11-beginner-to-sota-guide-lb-0-9574.ipynb` | `b8f435ca12019acc1a9002965c797574be569683a603e097d9b055d0a8c9b43d` |
+| `s6e11-beginner-to-sota-guide-lb-0-9574-zh.ipynb` | `4f90ce299feac6cad10a059a231ba589ad08c1ba49bcc204929ac54848bff78f` |
+| `s6e11-deep-eda-9-model-blend-oof-0-951881.ipynb` | `f1b1609c30a9e509e95c256338ad4e786533250a917738c33500ce6fd98380ca` |
