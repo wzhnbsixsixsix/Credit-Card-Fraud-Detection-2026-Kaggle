@@ -31,7 +31,7 @@ python -m src.validate_submission artifacts/baseline/e01-lgb2/submission.csv
 
 ## 本地运行 Notebook
 
-在项目根目录或 `Code/` 打开 Notebook，选择 **Python (s6e11-notebooks)** 内核。四份 Notebook 共用 `Code/data/raw/` 中的 `train.csv`、`test.csv` 和 `sample_submission.csv`。
+项目根目录的 `CN/` 与 `EN/` 分别存放四份中文版和英文版 Notebook。打开后选择 **Python (s6e11-notebooks)** 内核。仓库版基线在 `Code/01_baseline.ipynb`。各 Notebook 共用 `Code/data/raw/` 中的 `train.csv`、`test.csv` 和 `sample_submission.csv`。
 
 需要在另一台机器安装时，在仓库目录运行：
 
@@ -90,3 +90,4 @@ python -m src.validate_submission artifacts/final/sprint/submission.csv
 - 2026-11-25 · 加入基线 Notebook 及打开方式，复用现有训练和提交检查代码。
 - 2026-11-25 · 清理早期参考数据、派生验证目录和产物，统一使用正式比赛数据。
 - 2026-11-27 · 记录四份 Notebook 的本地数据目录、独立 Conda 内核和参考预测文件位置。
+- 2026-11-27 · 记录项目根目录的 CN/EN 分类及双语 Notebook 的使用入口。

@@ -61,3 +61,9 @@
 | `s6e11-beginner-to-sota-guide-lb-0-9574.ipynb` | `b8f435ca12019acc1a9002965c797574be569683a603e097d9b055d0a8c9b43d` |
 | `s6e11-beginner-to-sota-guide-lb-0-9574-zh.ipynb` | `4f90ce299feac6cad10a059a231ba589ad08c1ba49bcc204929ac54848bff78f` |
 | `s6e11-deep-eda-9-model-blend-oof-0-951881.ipynb` | `f1b1609c30a9e509e95c256338ad4e786533250a917738c33500ce6fd98380ca` |
+
+## 2026-11-27 · Notebook 中英文分类
+
+项目根目录的 `CN/` 和 `EN/` 各提供四份 Notebook，分别对应基线、Deep EDA、Beginner to SOTA Guide 和 Top 100。沿用 SOTA 的现成中文版；补充 Deep EDA 与 Top 100 的中文正文，以及仓库基线的英文正文。Deep EDA 的 90 个 Markdown 单元逐节覆盖，长段落和图文卡片整理为中文要点，代码和输出用语沿用源文件。
+
+Top 100 的两个版本接入本地正式数据和独立 Conda 内核，原始预测组合与哈希校验沿用作者代码。完整复现仍需作者的固定预测文件，目录为 `Code/data/reference/top-100/`；未适配前的原稿归档在 `EN/.originals/`。仓库中的 `01_baseline.ipynb` 是两份分类副本的来源。
