@@ -46,3 +46,5 @@
 ## 2026-11-27 · Beginner to SOTA Guide
 
 从 Kaggle 的 Notebook 下载接口取得 rishabhbafnaiiitd 的第 18 版，供后续复现实验参考。文件保存在项目根目录（`Code/` 外）的 `s6e11-beginner-to-sota-guide-lb-0-9574.ipynb`。Jupyter 文件结构校验通过，含 17 个单元，SHA-256 为 `c3dee3db40a21fd4bb8adfe2a8a74c3632d152fb833617f0912ceca46323490c`。 [Kaggle 原始 Notebook](https://www.kaggle.com/code/rishabhbafnaiiitd/s6e11-beginner-to-sota-guide-lb-0-9574)
+
+中文版与原始文件保存在同一目录，文件名为 `s6e11-beginner-to-sota-guide-lb-0-9574-zh.ipynb`。翻译了 7 个说明单元并将成绩演进表改为适合中文阅读的 Markdown 表格，另翻译了 20 条 Python 注释。保留独立公式和可执行代码，为 17 个单元补齐 Jupyter ID。格式和代码等价性校验通过，SHA-256 为 `90d8066edd067257dd01d2150636968f540371d2460069ac51169101e422cade`。
